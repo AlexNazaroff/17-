@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обработчик события document.addEventListen</title>
+    <style>
+        div{ 
+        width: 100px;
+        height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        
+        }
+    </style>
+</head>
+<body>
+    <div id='d1'></div>
+    
+    <script>
+document.getElementById('d1').addEventListener('mouseout', mouseOut);
+function mouseOut()        {
+document.getElementById('d1')   .style.backgroundColor='blue' ;
+}
+        
+var x=200; var y=200; var delta=30;    document.addEventListener('keydown', KeyDown);
+        function KeyDown(e){
+            console.log(e.keyCode);
+switch (e.keyCode){
+case 37:console.log('left');moveLeft();break;
+case 38:console.log('Up');moveUp();break;
+case 39:console.log('Right');moveRight();break;
+case 40:console.log('Down');moveDown();break;
+}
+document.getElementById('d1').style.left=x+'px';
+document.getElementById('d1').style.Top=y+'px';
+        }
+function moveLeft(){
+    x=x-delta;
+}
+function moveRight(){
+    x=x+delta;
+}
+function moveUp(){
+    y=y-delta;
+}
+function moveDown(){
+    y=y+delta;
+}
+    </script>
+</body>
+</html>
